@@ -22,6 +22,7 @@ import bankTransactions from './data/bank/transactions.json';
 import healthcareProducts from './data/healthcare/products.json';
 import healthcareCategories from './data/healthcare/categories.json';
 import doctorsData from './data/healthcare/doctors.json';
+import { FLAVORS } from '../flavors/flavors';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type Any = any;
@@ -32,8 +33,45 @@ export interface MockResult {
 }
 
 const users = usersData as Any[];
-/** The all-flavors demo user is the signed-in identity, so every flavor renders. */
+/** Fallback identity (all flavors) when a session has no matching user record. */
 const DEMO_USER = users.find((u) => (u.flavors?.length ?? 0) >= 4) || users[0];
+
+/**
+ * Login is gated like the original backend: the journey starts at the login page. Credentials are
+ * validated against the per-flavor demo logins the login page already displays (public, and
+ * already bundled via flavors.ts), not against any shipped password store.
+ */
+const DEMO_CREDS = Object.values(FLAVORS)
+  .map((f: Any) => f.demoCredentials)
+  .filter(Boolean) as { email: string; password: string }[];
+
+const SESSION_KEY = 'shopshop_session';
+function readSession(): Any | null {
+  try {
+    const raw = typeof localStorage !== 'undefined' ? localStorage.getItem(SESSION_KEY) : null;
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+function writeSession(user: Any): void {
+  try {
+    localStorage.setItem(SESSION_KEY, JSON.stringify(user));
+  } catch {
+    /* ignore */
+  }
+}
+function clearSession(): void {
+  try {
+    localStorage.removeItem(SESSION_KEY);
+  } catch {
+    /* ignore */
+  }
+}
+/** The signed-in user from the client session, or the fallback identity. */
+function currentUser(): Any {
+  return readSession() || DEMO_USER;
+}
 
 const catalogs: Record<string, { products: Any[]; categories: Any[] }> = {
   retail: { products: retailProducts as Any[], categories: retailCategories as Any[] },
@@ -51,14 +89,25 @@ const publicUser = (u: Any) => ({ id: u.id, email: u.email, name: u.name });
 // ---------------------------------------------------------------------------
 // Auth (no passwords are shipped; the demo login accepts any filled-in form)
 // ---------------------------------------------------------------------------
+function authMe(): MockResult {
+  const session = readSession();
+  if (!session) return { status: 401, data: { error: 'Access token required' } };
+  return ok(session);
+}
+
 function login(body: Any): MockResult {
   const email = String(body?.email ?? '').trim();
   const password = String(body?.password ?? '');
-  if (!email || !password) {
+  const match = DEMO_CREDS.find(
+    (c) => c.email.toLowerCase() === email.toLowerCase() && c.password === password
+  );
+  if (!match) {
     return { status: 401, data: { success: false, error: 'Invalid credentials' } };
   }
   const user = users.find((u) => u.email.toLowerCase() === email.toLowerCase()) || DEMO_USER;
-  return ok({ success: true, user: publicUser(user) });
+  const session = publicUser(user);
+  writeSession(session);
+  return ok({ success: true, user: session });
 }
 
 // ---------------------------------------------------------------------------
@@ -71,7 +120,7 @@ function purchase(body: Any): MockResult {
     success: true,
     message: 'Purchase completed successfully',
     orderId: `${prefix}-${Date.now()}`,
-    userId: DEMO_USER.id,
+    userId: currentUser().id,
     timestamp: new Date().toISOString(),
   });
 }
@@ -80,21 +129,21 @@ function purchase(body: Any): MockResult {
 // Bank — filter by the signed-in user, port of bankController
 // ---------------------------------------------------------------------------
 function bankAccountsResponse(): MockResult {
-  const accounts = (bankAccounts as Any[]).filter((a) => a.userId === DEMO_USER.id);
+  const accounts = (bankAccounts as Any[]).filter((a) => a.userId === currentUser().id);
   const totalBalance = round2(accounts.reduce((sum, a) => sum + (a.balance ?? 0), 0));
   return ok({ accounts, totalBalance, currency: accounts[0]?.currency ?? 'USD' });
 }
 
 function bankAccountById(id: number): MockResult {
-  const account = (bankAccounts as Any[]).find((a) => a.id === id && a.userId === DEMO_USER.id);
+  const account = (bankAccounts as Any[]).find((a) => a.id === id && a.userId === currentUser().id);
   return account ? ok(account) : notFound();
 }
 
 function bankTransactions(id: number): MockResult {
-  const owned = (bankAccounts as Any[]).some((a) => a.id === id && a.userId === DEMO_USER.id);
+  const owned = (bankAccounts as Any[]).some((a) => a.id === id && a.userId === currentUser().id);
   if (!owned) return notFound();
   const txns = (bankTransactions as Any[])
-    .filter((t) => t.accountId === id)
+    .filter((t: Any) => t.accountId === id)
     .sort((a, b) => {
       if (a.status !== b.status) return a.status === 'pending' ? -1 : 1;
       return new Date(b.date).getTime() - new Date(a.date).getTime();
@@ -264,9 +313,12 @@ export function handleApiRequest(
   }
 
   if (seg[0] === 'auth') {
-    if (seg[1] === 'me') return m === 'GET' ? ok(publicUser(DEMO_USER)) : notFound();
+    if (seg[1] === 'me') return m === 'GET' ? authMe() : notFound();
     if (seg[1] === 'login' && m === 'POST') return login(body);
-    if (seg[1] === 'logout' && m === 'POST') return ok({ success: true, message: 'Logged out successfully' });
+    if (seg[1] === 'logout' && m === 'POST') {
+      clearSession();
+      return ok({ success: true, message: 'Logged out successfully' });
+    }
     return notFound();
   }
   if (seg[0] === 'users') return ok(users);
