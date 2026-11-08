@@ -1,0 +1,36 @@
+[
+  { "id": 101, "accountId": 1, "date": "2026-08-08", "description": "Whole Foods Market", "category": "Groceries", "amount": -84.23, "balanceAfter": 4820.55, "status": "posted" },
+  { "id": 102, "accountId": 1, "date": "2026-08-07", "description": "Transport for London", "category": "Transport", "amount": -6.4, "balanceAfter": 4904.78, "status": "posted" },
+  { "id": 103, "accountId": 1, "date": "2026-08-06", "description": "Acme Corp Payroll", "category": "Income", "amount": 3240.0, "balanceAfter": 4911.18, "status": "posted" },
+  { "id": 104, "accountId": 1, "date": "2026-08-05", "description": "Northbank Savings Transfer", "category": "Transfers", "amount": -500.0, "balanceAfter": 1671.18, "status": "posted" },
+  { "id": 105, "accountId": 1, "date": "2026-08-04", "description": "Shell Service Station", "category": "Transport", "amount": -61.9, "balanceAfter": 2171.18, "status": "posted" },
+  { "id": 106, "accountId": 1, "date": "2026-08-03", "description": "Odeon Cinema", "category": "Leisure", "amount": -27.0, "balanceAfter": 2233.08, "status": "posted" },
+  { "id": 107, "accountId": 1, "date": "2026-08-02", "description": "Thames Water", "category": "Utilities", "amount": -42.15, "balanceAfter": 2260.08, "status": "posted" },
+  { "id": 108, "accountId": 1, "date": "2026-08-01", "description": "Riverside Lettings", "category": "Housing", "amount": -1450.0, "balanceAfter": 2302.23, "status": "posted" },
+  { "id": 109, "accountId": 1, "date": "2026-07-31", "description": "Pret A Manger", "category": "Eating out", "amount": -9.85, "balanceAfter": 3752.23, "status": "posted" },
+  { "id": 110, "accountId": 1, "date": "2026-07-30", "description": "Amazon Marketplace", "category": "Shopping", "amount": -134.99, "balanceAfter": 3762.08, "status": "posted" },
+  { "id": 111, "accountId": 1, "date": "2026-08-09", "description": "Costa Coffee", "category": "Eating out", "amount": -4.7, "balanceAfter": 4815.85, "status": "pending" },
+
+  { "id": 201, "accountId": 2, "date": "2026-08-01", "description": "Interest paid", "category": "Interest", "amount": 47.12, "balanceAfter": 18250.0, "status": "posted" },
+  { "id": 202, "accountId": 2, "date": "2026-08-05", "description": "Transfer from Everyday Checking", "category": "Transfers", "amount": 500.0, "balanceAfter": 18202.88, "status": "posted" },
+  { "id": 203, "accountId": 2, "date": "2026-07-01", "description": "Interest paid", "category": "Interest", "amount": 45.9, "balanceAfter": 17702.88, "status": "posted" },
+  { "id": 204, "accountId": 2, "date": "2026-06-14", "description": "Transfer from Everyday Checking", "category": "Transfers", "amount": 1000.0, "balanceAfter": 17656.98, "status": "posted" },
+  { "id": 205, "accountId": 2, "date": "2026-06-01", "description": "Interest paid", "category": "Interest", "amount": 41.33, "balanceAfter": 16656.98, "status": "posted" },
+
+  { "id": 301, "accountId": 3, "date": "2026-08-08", "description": "Trainline", "category": "Transport", "amount": -128.5, "balanceAfter": -742.18, "status": "posted" },
+  { "id": 302, "accountId": 3, "date": "2026-08-06", "description": "Uniqlo", "category": "Shopping", "amount": -89.0, "balanceAfter": -613.68, "status": "posted" },
+  { "id": 303, "accountId": 3, "date": "2026-08-04", "description": "Dishoom", "category": "Eating out", "amount": -142.6, "balanceAfter": -524.68, "status": "posted" },
+  { "id": 304, "accountId": 3, "date": "2026-08-02", "description": "Cashback earned", "category": "Cashback", "amount": 11.4, "balanceAfter": -382.08, "status": "posted" },
+  { "id": 305, "accountId": 3, "date": "2026-07-28", "description": "Payment received", "category": "Payments", "amount": 400.0, "balanceAfter": -393.48, "status": "posted" },
+  { "id": 306, "accountId": 3, "date": "2026-07-26", "description": "Apple Services", "category": "Subscriptions", "amount": -22.99, "balanceAfter": -793.48, "status": "posted" },
+
+  { "id": 401, "accountId": 4, "date": "2026-08-08", "description": "Reflectiz Payroll", "category": "Income", "amount": 4100.0, "balanceAfter": 2913.4, "status": "posted" },
+  { "id": 402, "accountId": 4, "date": "2026-08-07", "description": "Sainsbury's", "category": "Groceries", "amount": -76.2, "balanceAfter": -1186.6, "status": "posted" },
+  { "id": 403, "accountId": 4, "date": "2026-08-05", "description": "Fixed Saver Transfer", "category": "Transfers", "amount": -1500.0, "balanceAfter": -1110.4, "status": "posted" },
+  { "id": 404, "accountId": 4, "date": "2026-08-03", "description": "EE Mobile", "category": "Utilities", "amount": -32.0, "balanceAfter": 389.6, "status": "posted" },
+  { "id": 405, "accountId": 4, "date": "2026-08-01", "description": "Greenfield Property", "category": "Housing", "amount": -1275.0, "balanceAfter": 421.6, "status": "posted" },
+  { "id": 406, "accountId": 4, "date": "2026-07-29", "description": "Deliveroo", "category": "Eating out", "amount": -31.4, "balanceAfter": 1696.6, "status": "posted" },
+
+  { "id": 501, "accountId": 5, "date": "2026-05-30", "description": "Opening deposit", "category": "Transfers", "amount": 8000.0, "balanceAfter": 8000.0, "status": "posted" },
+  { "id": 502, "accountId": 5, "date": "2026-08-05", "description": "Transfer from Everyday Checking", "category": "Transfers", "amount": 1500.0, "balanceAfter": 9500.0, "status": "posted" }
+]

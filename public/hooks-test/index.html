@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="test-meta" http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>All Hooks Test</title>
+    <link id="test-link" rel="stylesheet" href="" />
+</head>
+<body>
+    <h1>All Hooks Test</h1>
+    
+    <!-- Elements needed for various hook tests -->
+    <input type="text" id="test-input" value="initial value" />
+    <select id="test-select">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+    </select>
+    <textarea id="test-textarea">initial textarea value</textarea>
+    <img id="test-image" src="" alt="Test Image" />
+    <iframe id="test-iframe" src="" width="600" height="400"></iframe>
+    <script id="test-script" src=""></script>
+    <form id="test-form">
+        <input type="text" name="test" value="test" />
+    </form>
+    <div id="container">This is some <span>content</span> inside a container.</div>
+    
+    <!-- Script loader that ensures each script runs only once per session -->
+    <script>
+        // List of all hook test scripts to load
+        const hookScripts = [
+            'windowHooks/index.js',
+            'locationHooks/index.js',
+            'webSocketHooks/index.js',
+            'workerHooks/index.js',
+            'XMLHttpRequestHooks/index.js',
+            'geolocationHooks/index.js',
+            'MutationObserverHooks/index.js',
+            'inputHooks/index.js',
+            'selectHooks/index.js',
+            'textareaHooks/index.js',
+            'metaHooks/index.js',
+            'imageHooks/index.js',
+            'iframeHooks/index.js',
+            'linkHooks/index.js',
+            'scriptHooks/index.js',
+            'CSSStyleSheetHooks/index.js',
+            'rangeHooks/index.js',
+            'IntlDateTimeFormatHooks/index.js',
+            'bluetoothHooks/index.js',
+            'objectHooks/index.js',
+            'reflectHooks/index.js',
+            'formHooks/index.js',
+            'navigatorHooks/index.js',
+            'WebAssemblyHooks/index.js',
+            'elementHooks/index.js',
+            'promiseHooks/index.js',
+            'storageHooks/index.js',
+            'documentHooks/index.js',
+        ];
+
+        // Initialize global object to track script completion
+        window.hookScriptComplete = window.hookScriptComplete || {};
+        
+        // Function to check if a script has completed execution
+        function checkScriptComplete(scriptPath) {
+            return window.hookScriptComplete[scriptPath] === true;
+        }
+        
+        // Function to wait for script completion (with timeout)
+        function waitForScriptComplete(scriptPath, timeout = 30000) {
+            return new Promise((resolve) => {
+                const startTime = Date.now();
+                const checkInterval = setInterval(() => {
+                    if (checkScriptComplete(scriptPath)) {
+                        clearInterval(checkInterval);
+                        resolve(true);
+                    } else if (Date.now() - startTime > timeout) {
+                        clearInterval(checkInterval);
+                        console.warn(`⏱️  Timeout waiting for ${scriptPath} to complete`);
+                        resolve(false);
+                    }
+                }, 50); // Check every 50ms
+            });
+        }
+        
+        // Function to load a script and wait for completion
+        async function loadScriptOnce(scriptPath) {
+            const storageKey = `hook_script_${scriptPath}`;
+            
+            // Check if script has already been executed and completed in this session
+            if (sessionStorage.getItem(storageKey) === 'executed' && checkScriptComplete(scriptPath)) {
+                console.log(`⏭️  Skipping ${scriptPath} - already executed and completed`);
+                return Promise.resolve();
+            }
+            
+            // Reset completion flag for this script
+            window.hookScriptComplete[scriptPath] = false;
+            
+            // Load and execute the script
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = scriptPath;
+                script.onload = async () => {
+                    console.log(`📥 Loaded ${scriptPath}, waiting for completion...`);
+                    
+                    // Wait for the script to signal completion
+                    const completed = await waitForScriptComplete(scriptPath);
+                    
+                    if (completed) {
+                        // Only mark as executed after it returns true
+                        sessionStorage.setItem(storageKey, 'executed');
+                        console.log(`✅ Completed ${scriptPath}`);
+                        resolve();
+                    } else {
+                        console.warn(`⚠️  ${scriptPath} did not signal completion`);
+                        resolve(); // Still resolve to continue with other scripts
+                    }
+                };
+                script.onerror = () => {
+                    console.error(`❌ Failed to load ${scriptPath}`);
+                    reject(new Error(`Failed to load ${scriptPath}`));
+                };
+                document.body.appendChild(script);
+            });
+        }
+
+        // Load all scripts sequentially (one after another)
+        async function loadAllScripts() {
+            console.log('🚀 Starting to load hook test scripts...');
+            for (const scriptPath of hookScripts) {
+                try {
+                    await loadScriptOnce(scriptPath);
+                    // Small delay between scripts to avoid overwhelming
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                } catch (error) {
+                    console.error(`Error loading ${scriptPath}:`, error);
+                }
+            }
+            console.log('✅ All hook test scripts loaded');
+        }
+
+        // Start loading when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadAllScripts);
+        } else {
+            loadAllScripts();
+        }
+    </script>
+</body>
+</html>
+

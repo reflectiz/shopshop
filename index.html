@@ -1,27 +1,38 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>shopshop</title>
-    <style>
-      html, body { height: 100%; margin: 0; }
-      body {
-        display: grid;
-        place-items: center;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-        background: #0f172a;
-        color: #e2e8f0;
-      }
-      .card { text-align: center; }
-      h1 { font-size: 2.5rem; margin: 0 0 0.5rem; }
-      p { margin: 0; color: #94a3b8; }
-    </style>
-  </head>
-  <body>
-    <div class="card">
-      <h1>Hello, world 👋</h1>
-      <p>shopshop is live on GitHub Pages.</p>
-    </div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- OneTrust Cookies Consent Notice start for www.shopshop.biz -->
+  <script type="text/javascript"
+    src="https://cdn.cookielaw.org/consent/01a04378-2870-78d4-b19b-726bb45644f6/OtAutoBlock.js"></script>
+  <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8"
+    data-domain-script="01a04378-2870-78d4-b19b-726bb45644f6"></script>
+  <script type="text/javascript">
+    function OptanonWrapper() { }
+  </script>
+  <!-- OneTrust Cookies Consent Notice end for www.shopshop.biz -->
+
+  <script type="text/javascript">
+    (function () {
+      var siteIds = { retail: '98059', insurance: '98053', bank: '98064', healthcare: '98056' };
+      var siteId = siteIds[location.pathname.split('/').filter(Boolean)[0]] || siteIds.retail;
+      var el = document.createElement('script');
+      el.id = 'reflectiz-blocking-' + siteId;
+      el.src = 'https://' + siteId + '.blocking.reflectiz.net/blocking.min.js';
+      el.setAttribute('data-ot-ignore', '');
+      document.head.appendChild(el);
+    })();
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopHub - E-commerce Store</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "title": "Everyday Current Account",
+    "subtitle": "No monthly fee",
+    "price": 0,
+    "priceUnit": "per month",
+    "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop",
+    "description": "Day-to-day banking with instant notifications and fee-free spending abroad.",
+    "category": "current",
+    "tags": ["No monthly fee", "Fee-free abroad", "Instant alerts"],
+    "meta": { "arrangedOverdraftApr": 19.9 }
+  },
+  {
+    "id": 2,
+    "title": "Premier Current Account",
+    "subtitle": "Added benefits",
+    "price": 12,
+    "priceUnit": "per month",
+    "image": "https://images.unsplash.com/photo-1579621970588-a35d0e58c36b?w=400&h=300&fit=crop",
+    "description": "Travel insurance, breakdown cover and a dedicated relationship manager.",
+    "category": "current",
+    "tags": ["Travel insurance", "Breakdown cover", "Relationship manager"],
+    "meta": { "arrangedOverdraftApr": 14.9 }
+  },
+  {
+    "id": 3,
+    "title": "Easy Access Saver",
+    "subtitle": "Withdraw anytime",
+    "price": 0,
+    "priceUnit": "3.10% AER",
+    "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400&h=300&fit=crop",
+    "description": "Variable rate savings with unlimited withdrawals and no notice period.",
+    "category": "savings",
+    "tags": ["3.10% AER variable", "No notice", "Open with $1"],
+    "meta": { "aer": 3.1, "minimumDeposit": 1 }
+  },
+  {
+    "id": 4,
+    "title": "2-Year Fixed Saver",
+    "subtitle": "Fixed rate",
+    "price": 0,
+    "priceUnit": "4.25% AER",
+    "image": "https://images.unsplash.com/photo-1616514197671-15d99ce7a6f8?w=400&h=300&fit=crop",
+    "description": "A guaranteed rate for two years. No withdrawals during the term.",
+    "category": "savings",
+    "tags": ["4.25% AER fixed", "2-year term", "Open with $500"],
+    "meta": { "aer": 4.25, "termMonths": 24, "minimumDeposit": 500 }
+  },
+  {
+    "id": 5,
+    "title": "Everyday Debit Card",
+    "subtitle": "Included",
+    "price": 0,
+    "priceUnit": "included",
+    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+    "description": "Contactless debit card with instant freeze and spending controls in-app.",
+    "category": "cards",
+    "tags": ["Contactless", "Instant freeze", "Spend controls"],
+    "meta": { "contactlessLimit": 100 }
+  },
+  {
+    "id": 6,
+    "title": "Cashback Credit Card",
+    "subtitle": "1.5% cashback",
+    "price": 0,
+    "priceUnit": "22.9% APR",
+    "image": "https://images.unsplash.com/photo-1613243555988-441166d4d6fd?w=400&h=300&fit=crop",
+    "description": "Unlimited 1.5% cashback on everyday spending, no annual fee.",
+    "category": "cards",
+    "tags": ["1.5% cashback", "No annual fee"],
+    "meta": { "representativeApr": 22.9, "cashbackRate": 1.5 }
+  },
+  {
+    "id": 7,
+    "title": "Personal Loan",
+    "subtitle": "$1k to $35k",
+    "price": 0,
+    "priceUnit": "6.9% APR",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop",
+    "description": "Fixed monthly repayments over one to seven years, with no early repayment fee.",
+    "category": "borrowing",
+    "tags": ["6.9% APR representative", "No early repayment fee"],
+    "meta": { "representativeApr": 6.9, "maximumAmount": 35000 }
+  },
+  {
+    "id": 8,
+    "title": "Arranged Overdraft",
+    "subtitle": "Short-term buffer",
+    "price": 0,
+    "priceUnit": "19.9% EAR",
+    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
+    "description": "An agreed limit on your current account, charged only on what you use.",
+    "category": "borrowing",
+    "tags": ["Interest-free to $50", "No usage fee"],
+    "meta": { "ear": 19.9, "interestFreeBuffer": 50 }
+  }
+]

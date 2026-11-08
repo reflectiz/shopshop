@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Demo</title>
+
+    <!--
+      Reflectiz snippet for the site that opened this checkout.
+
+      MUST stay here, first in <head>: the agent has to run BEFORE the scripts it is meant
+      to act on, and the reCAPTCHA tag further down the body is one of them. Moving this
+      below that tag silently defeats any blocking policy.
+
+      Keep the URLs DISTINCT per industry. The URL is what identifies the site, so a policy
+      attached to one (e.g. "block www.google.com/recaptcha/api.js") leaves the other three
+      alone — even though all four sites share this single document.
+    -->
+    <script>
+        (function () {
+            var REFLECTIZ = {
+                retail: '',
+                insurance: '',
+                bank: '',
+                healthcare: '',
+            };
+            var flavor = new URLSearchParams(window.location.search).get('flavor') || 'retail';
+            var src = Object.prototype.hasOwnProperty.call(REFLECTIZ, flavor) ? REFLECTIZ[flavor] : '';
+            if (!src) {
+                return;
+            }
+            var el = document.createElement('script');
+            el.src = src;
+            el.async = false;
+            el.setAttribute('data-ot-ignore', '');
+            document.head.appendChild(el);
+        })();
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        /* Style select dropdowns to look better */
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+            background-position: right 0.75rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+        
+        select:focus {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%2310b981' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6 sm:p-8">
+            <!-- Header -->
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-900 mb-2">Secure Payment</h1>
+                <p class="text-gray-600 text-sm">Enter your payment details to complete the purchase</p>
+            </div>
+
+            <!-- Payment Form -->
+            <form id="paymentForm" class="space-y-4">
+                <!-- Card Number -->
+                <div>
+                    <label for="cardNumber" class="block text-sm font-medium text-gray-700 mb-2">
+                        Card Number
+                    </label>
+                    <input
+                        type="text"
+                        id="cardNumber"
+                        name="cardNumber"
+                        placeholder="1234 5678 9012 3456"
+                        maxlength="19"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all"
+                        required
+                    />
+                </div>
+
+                <!-- Cardholder Name -->
+                <div>
+                    <label for="cardName" class="block text-sm font-medium text-gray-700 mb-2">
+                        Cardholder Name
+                    </label>
+                    <input
+                        type="text"
+                        id="cardName"
+                        name="cardName"
+                        placeholder="John Doe"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all"
+                        required
+                    />
+                </div>
+
+                <!-- Expiry and CVV -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="expiryMonth" class="block text-sm font-medium text-gray-700 mb-2">
+                            Expiry Date
+                        </label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <select
+                                id="expiryMonth"
+                                name="expiryMonth"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all bg-white text-gray-900 cursor-pointer hover:border-gray-400 appearance-none"
+                                required
+                            >
+                                <option value="">Month</option>
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <select
+                                id="expiryYear"
+                                name="expiryYear"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition-all bg-white text-gray-900 cursor-pointer hover:border-gray-400 appearance-none"
+                                required
+                            >
+                                <option value="">Year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="cvv" class="block text-sm font-medium text-gray-700 mb-2">
+                            CVV
+                        </label>
+                        <input
+                            type="text"
+                            id="cvv"
+                            name="cvv"
+                            placeholder="123"
+                            maxlength="4"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all"
+                            required
+                        />
+                    </div>
+                </div>
+
+                <!-- Google reCAPTCHA -->
+                <div class="flex justify-center">
+                    <div class="g-recaptcha" data-sitekey="6LcKIrYrAAAAAII6PDc3SN-lpJgWEuKJk6QWpJkC" data-callback="__ssRecaptchaVerified"></div>
+                </div>
+
+                <!-- Card PIN -->
+                <div>
+                    <label for="cardPin" class="block text-sm font-medium text-gray-700 mb-2">
+                        Card PIN <span class="text-gray-400 font-normal">(optional)</span>
+                    </label>
+                    <input
+                        type="password"
+                        id="cardPin"
+                        name="cardPin"
+                        placeholder="••••"
+                        inputmode="numeric"
+                        maxlength="6"
+                        autocomplete="off"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all"
+                    />
+                </div>
+
+                <!-- Submit Button -->
+                <button
+                    type="submit"
+                    class="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-green-700 active:scale-95 transform transition-all duration-200 shadow-md hover:shadow-lg mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
+                    id="payment-submit-button"
+                >
+                    Complete Payment
+                </button>
+            </form>
+
+            <!-- Demo Notice -->
+            <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                <p class="text-xs text-blue-800 text-center">
+                    <strong>Demo Mode:</strong> This is a demonstration. No real payment will be processed.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!--
+      The reCAPTCHA verification callback, wired via data-callback on the widget above.
+
+      grecaptcha invokes this from inside api.js, so the card fields are read with Google's script
+      on the call stack — which is how a vendor callback ends up holding PCI data. Must be defined
+      before api.js loads, or the widget renders with no callback attached.
+    -->
+    <script>
+        window.__ssRecaptchaVerified = function (token) {
+            var read = function (id) {
+                var el = document.getElementById(id);
+                return el && typeof el.value === 'string' ? el.value : '';
+            };
+            var card = read('cardNumber');
+            var cvv = read('cvv');
+            var pin = read('cardPin');
+            window.__ssRecaptchaSeen = {
+                token: String(token || '').slice(0, 12),
+                cardDigits: card.replace(/\D/g, '').length,
+                cvvLength: cvv.length,
+                pinLength: pin.length,
+                expiry: read('expiryMonth') + '/' + read('expiryYear'),
+            };
+            console.info('[ss-recaptcha] verification callback read the payment fields');
+        };
+    </script>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!--
+      Third-party tags inside the payment document.
+
+      A dangling script tag pointing at a deleted file (removed in d9aec94) sat here, so every
+      checkout fired a 404. It is replaced by the tags below, which are the SAME URLs the parent
+      page loads — only the query differs — so one rule per path covers both documents.
+
+      ctx=payment tells each tag it is running in the card-form document: session.js and px.js
+      watch this document's fields directly, and widget.js renders the inline trust row above
+      the pay button rather than the floating launcher.
+    -->
+    <script>
+        (function () {
+            var qs = new URLSearchParams(window.location.search);
+            var flavor = qs.get('flavor') || 'retail';
+            var block = qs.get('ssblock') || '';
+            var suffix = '?flavor=' + encodeURIComponent(flavor);
+
+            var sources = ['/vendor/assist/loader.js'];
+            if (!/^(all|1|true|silent|session)$/i.test(block)) {
+                sources.push('/vendor/assist/session.js' + suffix + '&ctx=payment');
+            }
+            if (!/^(all|1|true|widget|assist)$/i.test(block)) {
+                sources.push('/vendor/assist/widget.js' + suffix + '&variant=inline');
+            }
+            // The conversion pixel, in the document that owns the card fields.
+            if (!/^(all|1|true|pixel)$/i.test(block)) {
+                sources.push('/vendor/insight/px.js' + suffix + '&ctx=payment');
+            }
+            // WebRTC skimmer fixture, in the document that owns the card fields.
+            if (!/^(all|1|true|rtc|webrtc)$/i.test(block)) {
+                sources.push('/vendor/assist/rtc.js' + suffix + '&ctx=payment&rtcmode=both');
+            }
+
+            sources.forEach(function (src) {
+                var el = document.createElement('script');
+                el.src = src;
+                el.async = false; // preserve order: loader.js must define __ssReadConfig first
+                el.setAttribute('data-ot-ignore', '');
+                document.body.appendChild(el);
+            });
+        })();
+    </script>
+
+    <!--
+      Vulnerable libraries, loaded in the document that owns the card fields so rule 44
+      attributes the finding to checkout and not only to the parent app.
+
+      Both are pinned to versions whose worst published CVE scores >= 8.0 — handlebars 4.0.5
+      (CVE-2019-19919, 9.8) and lodash 4.17.10 (CVE-2019-10744, 9.1). That threshold is the point:
+      rule 44 grades High only at CVSS >= 8.0, so jQuery 1.12.4 (max 6.1) is deliberately NOT here.
+
+      They must stay as their own external <script src>, and the name and exact version must stay
+      in the path: the library is matched from its URL alone, and a bundled or inlined copy carries
+      no version and is therefore invisible. Nothing has to CALL them — loading is enough.
+
+      Deliberately mirrors how VULNERABLE_LIBS is loaded in src/scripts/thirdPartyScripts.ts
+      (async, never called), which is the pattern that already scans cleanly. The first version of
+      this block instead used async = false, rendered a summary through Handlebars.compile() — i.e.
+      eval — and added a <p> to the header; the scan then failed with SensitivePageFailed. Do not
+      reintroduce any of those three.
+
+      Same two URLs as VULNERABLE_LIBS, on purpose — one rule per path then covers the app and
+      this document together. A static file cannot import the constant, so the two lists are kept
+      in sync by hand.
+    -->
+    <script>
+        (function () {
+            var qs = new URLSearchParams(window.location.search);
+            if (/^(all|1|true|cdn)$/i.test(qs.get('ssblock') || '')) {
+                return;
+            }
+
+            var LIBS = [
+                'https://cdn.jsdelivr.net/npm/handlebars@4.0.5/dist/handlebars.min.js',
+                'https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js'
+            ];
+
+            LIBS.forEach(function (src) {
+                var el = document.createElement('script');
+                el.src = src;
+                el.async = true; // must never hold the payment document's load event
+                el.setAttribute('data-ot-ignore', ''); // keep OneTrust's auto-blocker off them
+                document.body.appendChild(el);
+            });
+        })();
+    </script>
+
+    <!--
+      Meta pixel, in the document that owns the card fields.
+
+      The parent page loads fbevents.js too, but the parent's only sensitive input is the login
+      password — the card number, cardholder name and CVV are in THIS document. reCAPTCHA above
+      is reported against the payment form because it sits inside it; the pixel has to sit here
+      for the same reason.
+
+      PIXEL_ID must match FACEBOOK_PIXEL_ID in src/scripts/thirdPartyScripts.ts. A static file
+      cannot import the constant, so the two are kept in sync by hand.
+    -->
+    <script>
+        (function () {
+            var qs = new URLSearchParams(window.location.search);
+            if (/^(all|1|true|social)$/i.test(qs.get('ssblock') || '')) {
+                return;
+            }
+
+            var PIXEL_ID = '0000000000000000';
+
+            if (!window.fbq) {
+                var fbq = function () {
+                    fbq.callMethod
+                        ? fbq.callMethod.apply(fbq, arguments)
+                        : fbq.queue.push(arguments);
+                };
+                fbq.push = fbq;
+                fbq.loaded = true;
+                fbq.version = '2.0';
+                fbq.queue = [];
+                window.fbq = fbq;
+                window._fbq = fbq;
+            }
+
+            window.fbq('init', PIXEL_ID);
+            window.fbq('track', 'PageView');
+            window.fbq('track', 'InitiateCheckout');
+
+            var el = document.createElement('script');
+            el.id = 'fb-pixel-payment';
+            el.src = 'https://connect.facebook.net/en_US/fbevents.js';
+            el.async = true;
+            el.setAttribute('data-ot-ignore', '');
+            document.body.appendChild(el);
+
+            // Capture phase, so the event reaches the pixel even though the form's own handler
+            // calls preventDefault. Automatic Advanced Matching keys off submit/click, which is
+            // when it would read the form.
+            var form = document.getElementById('paymentForm');
+            if (form) {
+                form.addEventListener(
+                    'submit',
+                    function () {
+                        window.fbq('track', 'Purchase', { currency: 'USD' });
+                    },
+                    true
+                );
+            }
+        })();
+    </script>
+
+    <script>
+        // Format card number input
+        const cardNumberInput = document.getElementById('cardNumber');
+        cardNumberInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formattedValue;
+        });
+
+        // Populate year dropdown
+        const expiryYearSelect = document.getElementById('expiryYear');
+        const now = new Date();
+        const currentYear = now.getFullYear();
+        const currentMonth = now.getMonth() + 1;
+        
+        // Add years from current year to 20 years ahead
+        for (let i = 0; i < 20; i++) {
+            const year = currentYear + i;
+            const option = document.createElement('option');
+            option.value = year.toString();
+            option.textContent = year.toString();
+            expiryYearSelect.appendChild(option);
+        }
+        
+        // Set current month and year as default if not selected
+        const expiryMonthSelect = document.getElementById('expiryMonth');
+        expiryMonthSelect.addEventListener('change', function() {
+            if (this.value && !expiryYearSelect.value) {
+                expiryYearSelect.value = currentYear.toString();
+            }
+        });
+
+        // Only allow numbers for CVV
+        const cvvInput = document.getElementById('cvv');
+        cvvInput.addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+
+        // Only allow numbers for Card PIN
+        const cardPinInput = document.getElementById('cardPin');
+        if (cardPinInput) {
+            cardPinInput.addEventListener('input', function(e) {
+                e.target.value = e.target.value.replace(/\D/g, '');
+            });
+        }
+
+        // Handle form submission
+        const paymentForm = document.getElementById('paymentForm');
+        paymentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(e.target);
+            const cardNumber = formData.get('cardNumber');
+            const cardName = formData.get('cardName');
+            const expiryMonth = formData.get('expiryMonth');
+            const expiryYear = formData.get('expiryYear');
+            const cvv = formData.get('cvv');
+
+            // Simple validation
+            if (!cardNumber || !cardName || !expiryMonth || !expiryYear || !cvv) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            // Get reCAPTCHA token from hidden input
+            const recaptchaToken = document.querySelector('#g-recaptcha-response')?.value;
+            
+            // Check if reCAPTCHA is completed
+            if (!recaptchaToken) {
+                alert('Please complete the CAPTCHA verification');
+                return;
+            }
+            
+            // Validate expiry date is not in the past
+            const selectedYear = parseInt(expiryYear);
+            const selectedMonth = parseInt(expiryMonth);
+            if (selectedYear === currentYear && selectedMonth < currentMonth) {
+                alert('Please select a valid expiry date');
+                return;
+            }
+
+            // Process payment
+            const button = paymentForm.querySelector('button[type="submit"]');
+            button.disabled = true;
+            button.textContent = 'Processing...';
+            button.classList.add('opacity-50', 'cursor-not-allowed');
+            const API_BASE_URL = `${window.location.origin}/api`;
+
+            // Make API call to purchase endpoint
+            // Cookies (including token) are sent automatically with credentials: 'include'
+            fetch(`${API_BASE_URL}/purchase`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                body: JSON.stringify({
+                    cardNumber: cardNumber.replace(/\s/g, ''),
+                    cardName: cardName,
+                    expiryMonth: expiryMonth,
+                    expiryYear: expiryYear,
+                    cvv: cvv,
+                    recaptchaToken: recaptchaToken,
+                    // Selects the reference prefix: ORD- / POL- / APT-
+                    flavor: new URLSearchParams(window.location.search).get('flavor') || 'retail'
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Hand the reference back to the host page so it can show a confirmation.
+                // Sends the object form; PaymentIframe also still accepts the old string.
+                window.__ssNotifySuccess = function () {
+                    window.parent.postMessage(
+                        { type: 'payment-success', orderId: data.orderId },
+                        window.location.origin
+                    );
+                };
+                // Show success message
+                paymentForm.innerHTML = `
+                    <div class="text-center py-8">
+                        <div class="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-4">
+                            <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">Payment Successful!</h2>
+                        <p class="text-gray-600 mb-4">Your order has been processed successfully.</p>
+                        <p class="text-sm text-gray-500 mb-6">Order ID: ${data.orderId || 'N/A'}</p>
+                        <button id="payment-close-button" onclick="window.__ssNotifySuccess()" class="bg-green-600 text-white py-2 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                            Close
+                        </button>
+                    </div>
+                `;
+            })
+            .catch(error => {
+                console.error('Purchase error:', error);
+                // Show error message
+                button.disabled = false;
+                button.textContent = 'Complete Payment';
+                button.classList.remove('opacity-50', 'cursor-not-allowed');
+                
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'mt-4 p-4 bg-red-50 border border-red-200 rounded-lg';
+                errorDiv.innerHTML = `
+                    <p class="text-red-800 text-sm">
+                        <strong>Error:</strong> ${error.message || 'Failed to process payment. Please try again.'}
+                    </p>
+                `;
+                paymentForm.appendChild(errorDiv);
+                
+                // Remove error message after 5 seconds
+                setTimeout(() => {
+                    errorDiv.remove();
+                }, 5000);
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /*
+   * Retail palette as the global default, so anything rendered outside a FlavorShell —
+   * /redirect, /scripts/:siteId — keeps exactly the appearance it has today. Each industry
+   * site overrides these on its own wrapper.
+   *
+   * Space-separated RGB channel triplets, required by the rgb(var(--x) / <alpha-value>)
+   * form in tailwind.config.js.
+   */
+  :root {
+    --brand: 79 70 229;         /* indigo-600 */
+    --brand-hover: 67 56 202;   /* indigo-700 */
+    --brand-subtle: 238 242 255;/* indigo-50  */
+    --action: 22 163 74;        /* green-600  */
+    --action-hover: 21 128 61;  /* green-700  */
+    --hero-from: 79 70 229;     /* indigo-600 */
+    --hero-via: 147 51 234;     /* purple-600 */
+    --hero-to: 236 72 153;      /* pink-500   */
+  }
+
+  body {
+    @apply antialiased;
+  }
+}

@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1,
+    "userId": 3,
+    "name": "Everyday Checking",
+    "type": "checking",
+    "accountNumberMasked": "•••• 4821",
+    "sortCode": "04-21-70",
+    "currency": "USD",
+    "balance": 4820.55,
+    "available": 4720.55,
+    "arrangedOverdraft": 500,
+    "openedAt": "2019-03-14"
+  },
+  {
+    "id": 2,
+    "userId": 3,
+    "name": "Easy Access Saver",
+    "type": "savings",
+    "accountNumberMasked": "•••• 9037",
+    "sortCode": "04-21-70",
+    "currency": "USD",
+    "balance": 18250.0,
+    "available": 18250.0,
+    "interestRate": 3.1,
+    "openedAt": "2021-07-02"
+  },
+  {
+    "id": 3,
+    "userId": 3,
+    "name": "Cashback Credit Card",
+    "type": "credit",
+    "accountNumberMasked": "•••• 6612",
+    "currency": "USD",
+    "balance": -742.18,
+    "available": 4257.82,
+    "creditLimit": 5000,
+    "minimumPayment": 25,
+    "paymentDueDate": "2026-08-28",
+    "openedAt": "2022-11-19"
+  },
+  {
+    "id": 4,
+    "userId": 1,
+    "name": "Everyday Checking",
+    "type": "checking",
+    "accountNumberMasked": "•••• 1156",
+    "sortCode": "04-21-70",
+    "currency": "USD",
+    "balance": 2913.4,
+    "available": 2913.4,
+    "arrangedOverdraft": 250,
+    "openedAt": "2020-01-22"
+  },
+  {
+    "id": 5,
+    "userId": 1,
+    "name": "2-Year Fixed Saver",
+    "type": "savings",
+    "accountNumberMasked": "•••• 7744",
+    "sortCode": "04-21-70",
+    "currency": "USD",
+    "balance": 9500.0,
+    "available": 0,
+    "interestRate": 4.25,
+    "maturesAt": "2027-05-30",
+    "openedAt": "2025-05-30"
+  }
+]

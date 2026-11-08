@@ -1,0 +1,322 @@
+[
+  {
+    "id": 1,
+    "title": "Wireless Headphones",
+    "price": 99.99,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop",
+    "description": "Premium wireless headphones with noise cancellation",
+    "category": "electronics"
+  },
+  {
+    "id": 2,
+    "title": "Smart Watch",
+    "price": 249.99,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop",
+    "description": "Feature-rich smartwatch with health tracking",
+    "category": "electronics"
+  },
+  {
+    "id": 3,
+    "title": "Mechanical Keyboard",
+    "price": 129.99,
+    "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&h=500&fit=crop",
+    "description": "RGB mechanical keyboard with cherry switches",
+    "category": "electronics"
+  },
+  {
+    "id": 4,
+    "title": "Wireless Mouse",
+    "price": 39.99,
+    "image": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=500&h=500&fit=crop",
+    "description": "Ergonomic wireless mouse with long battery life",
+    "category": "electronics"
+  },
+  {
+    "id": 5,
+    "title": "Bluetooth Speaker",
+    "price": 79.99,
+    "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop",
+    "description": "Portable Bluetooth speaker with 360° sound",
+    "category": "electronics"
+  },
+  {
+    "id": 6,
+    "title": "Webcam HD",
+    "price": 89.99,
+    "image": "https://images.unsplash.com/photo-1587825147138-346c006c4e0a?w=500&h=500&fit=crop",
+    "description": "1080p HD webcam with auto-focus",
+    "category": "electronics"
+  },
+  {
+    "id": 7,
+    "title": "Noise Cancelling Earbuds",
+    "price": 149.99,
+    "image": "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=500&h=500&fit=crop",
+    "description": "True wireless earbuds with active noise cancellation",
+    "category": "electronics"
+  },
+  {
+    "id": 8,
+    "title": "Wireless Charger",
+    "price": 29.99,
+    "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&h=500&fit=crop",
+    "description": "Fast wireless charging pad for smartphones",
+    "category": "electronics"
+  },
+  {
+    "id": 9,
+    "title": "USB Flash Drive 128GB",
+    "price": 19.99,
+    "image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=500&h=500&fit=crop",
+    "description": "High-speed USB 3.0 flash drive",
+    "category": "electronics"
+  },
+  {
+    "id": 10,
+    "title": "External Hard Drive 1TB",
+    "price": 79.99,
+    "image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=500&h=500&fit=crop",
+    "description": "Portable external hard drive with USB-C",
+    "category": "electronics"
+  },
+  {
+    "id": 11,
+    "title": "Smartphone Gimbal",
+    "price": 99.99,
+    "image": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&h=500&fit=crop",
+    "description": "3-axis smartphone gimbal for video stabilization",
+    "category": "electronics"
+  },
+  {
+    "id": 12,
+    "title": "Portable Monitor",
+    "price": 249.99,
+    "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop",
+    "description": "15.6 inch portable USB-C monitor",
+    "category": "electronics"
+  },
+  {
+    "id": 13,
+    "title": "Power Bank 20000mAh",
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop",
+    "description": "High-capacity power bank with fast charging",
+    "category": "electronics"
+  },
+  {
+    "id": 14,
+    "title": "Designer Sunglasses",
+    "price": 89.99,
+    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500&h=500&fit=crop",
+    "description": "Stylish UV protection sunglasses with polarized lenses",
+    "category": "fashion"
+  },
+  {
+    "id": 15,
+    "title": "Leather Watch",
+    "price": 159.99,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop",
+    "description": "Classic leather strap watch with elegant design",
+    "category": "fashion"
+  },
+  {
+    "id": 16,
+    "title": "Canvas Backpack",
+    "price": 69.99,
+    "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop",
+    "description": "Stylish canvas backpack with multiple compartments",
+    "category": "fashion"
+  },
+  {
+    "id": 17,
+    "title": "Leather Wallet",
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1627123424574-724758594e93?w=500&h=500&fit=crop",
+    "description": "Premium leather wallet with RFID blocking",
+    "category": "fashion"
+  },
+  {
+    "id": 18,
+    "title": "Cotton T-Shirt",
+    "price": 24.99,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop",
+    "description": "Comfortable 100% cotton t-shirt in various colors",
+    "category": "fashion"
+  },
+  {
+    "id": 19,
+    "title": "Denim Jacket",
+    "price": 79.99,
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&h=500&fit=crop",
+    "description": "Classic denim jacket with modern fit",
+    "category": "fashion"
+  },
+  {
+    "id": 20,
+    "title": "Running Shoes",
+    "price": 119.99,
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop",
+    "description": "Comfortable running shoes with cushioned sole",
+    "category": "fashion"
+  },
+  {
+    "id": 21,
+    "title": "Baseball Cap",
+    "price": 19.99,
+    "image": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=500&h=500&fit=crop",
+    "description": "Adjustable baseball cap with embroidered logo",
+    "category": "fashion"
+  },
+  {
+    "id": 22,
+    "title": "Leather Belt",
+    "price": 34.99,
+    "image": "https://images.unsplash.com/photo-1624222247344-550fb60583fd?w=500&h=500&fit=crop",
+    "description": "Genuine leather belt with classic buckle",
+    "category": "fashion"
+  },
+  {
+    "id": 23,
+    "title": "Crossbody Bag",
+    "price": 59.99,
+    "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=500&h=500&fit=crop",
+    "description": "Stylish crossbody bag with adjustable strap",
+    "category": "fashion"
+  },
+  {
+    "id": 24,
+    "title": "Winter Scarf",
+    "price": 29.99,
+    "image": "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=500&h=500&fit=crop",
+    "description": "Warm wool scarf in various patterns",
+    "category": "fashion"
+  },
+  {
+    "id": 25,
+    "title": "Gaming Chair",
+    "price": 299.99,
+    "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&h=500&fit=crop",
+    "description": "Ergonomic gaming chair with lumbar support",
+    "category": "home"
+  },
+  {
+    "id": 26,
+    "title": "Desk Lamp",
+    "price": 44.99,
+    "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&h=500&fit=crop",
+    "description": "LED desk lamp with adjustable brightness",
+    "category": "home"
+  },
+  {
+    "id": 27,
+    "title": "Laptop Stand",
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop",
+    "description": "Ergonomic aluminum laptop stand",
+    "category": "home"
+  },
+  {
+    "id": 28,
+    "title": "Standing Desk Converter",
+    "price": 199.99,
+    "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop",
+    "description": "Adjustable standing desk converter",
+    "category": "home"
+  },
+  {
+    "id": 29,
+    "title": "Monitor Stand",
+    "price": 34.99,
+    "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop",
+    "description": "Adjustable monitor stand with storage",
+    "category": "home"
+  },
+  {
+    "id": 30,
+    "title": "Desk Mat",
+    "price": 27.99,
+    "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&h=500&fit=crop",
+    "description": "Large desk mat with wrist support",
+    "category": "home"
+  },
+  {
+    "id": 31,
+    "title": "Tablet Stand",
+    "price": 19.99,
+    "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop",
+    "description": "Adjustable tablet stand for desk use",
+    "category": "home"
+  },
+  {
+    "id": 32,
+    "title": "Desk Organizer",
+    "price": 24.99,
+    "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&h=500&fit=crop",
+    "description": "Multi-compartment desk organizer",
+    "category": "home"
+  },
+  {
+    "id": 33,
+    "title": "Cable Organizer",
+    "price": 12.99,
+    "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&h=500&fit=crop",
+    "description": "Cable management system for desk",
+    "category": "home"
+  },
+  {
+    "id": 34,
+    "title": "Keyboard Wrist Rest",
+    "price": 19.99,
+    "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&h=500&fit=crop",
+    "description": "Ergonomic memory foam wrist rest",
+    "category": "home"
+  },
+  {
+    "id": 35,
+    "title": "Laptop Cooling Pad",
+    "price": 39.99,
+    "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop",
+    "description": "USB-powered laptop cooling pad with adjustable fans",
+    "category": "home"
+  },
+  {
+    "id": 36,
+    "title": "USB-C Hub",
+    "price": 59.99,
+    "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?w=500&h=500&fit=crop",
+    "description": "Multi-port USB-C hub for laptops",
+    "category": "home"
+  },
+  {
+    "id": 37,
+    "title": "Wall Clock",
+    "price": 34.99,
+    "image": "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=500&h=500&fit=crop",
+    "description": "Modern wall clock with silent movement",
+    "category": "home"
+  },
+  {
+    "id": 38,
+    "title": "Throw Pillow Set",
+    "price": 39.99,
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=500&fit=crop",
+    "description": "Set of 2 decorative throw pillows",
+    "category": "home"
+  },
+  {
+    "id": 39,
+    "title": "Desk Plant",
+    "price": 24.99,
+    "image": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500&h=500&fit=crop",
+    "description": "Low-maintenance desk plant in decorative pot",
+    "category": "home"
+  },
+  {
+    "id": 40,
+    "title": "Desk Drawer Organizer",
+    "price": 19.99,
+    "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&h=500&fit=crop",
+    "description": "Adjustable drawer organizer for office supplies",
+    "category": "home"
+  }
+]

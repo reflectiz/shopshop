@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Electronics",
+    "image": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 2,
+    "name": "Fashion",
+    "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 3,
+    "name": "Home",
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+  }
+]
+
