@@ -1,0 +1,68 @@
+[
+  {
+    "id": 3,
+    "title": "Cardiac Health Assessment",
+    "subtitle": "Cardiology",
+    "price": 395,
+    "priceUnit": "per visit",
+    "description": "ECG, blood pressure profile, bloods and a consultant review in one visit.",
+    "category": "cardiology",
+    "tags": ["90 minutes", "ECG included", "Bloods included"],
+    "meta": { "durationMinutes": 90, "preparation": "Fast for 8 hours" }
+  },
+  {
+    "id": 4,
+    "title": "Echocardiogram",
+    "subtitle": "Cardiology",
+    "price": 320,
+    "priceUnit": "per scan",
+    "description": "Ultrasound of the heart with same-day reporting by a consultant.",
+    "category": "cardiology",
+    "tags": ["40 minutes", "Same-day report"],
+    "meta": { "durationMinutes": 40 }
+  },
+  {
+    "id": 5,
+    "title": "Physiotherapy Initial Assessment",
+    "subtitle": "Physiotherapy",
+    "price": 95,
+    "priceUnit": "per session",
+    "description": "Movement assessment, hands-on treatment and a home exercise programme.",
+    "category": "physiotherapy",
+    "tags": ["50 minutes", "Exercise plan"],
+    "meta": { "durationMinutes": 50 }
+  },
+  {
+    "id": 6,
+    "title": "Sports Injury Rehab Block",
+    "subtitle": "Physiotherapy",
+    "price": 420,
+    "priceUnit": "6 sessions",
+    "description": "A six-session rehabilitation block with progressive loading and review.",
+    "category": "physiotherapy",
+    "tags": ["6 sessions", "Progress review", "Discounted block"],
+    "meta": { "sessions": 6, "durationMinutes": 45 }
+  },
+  {
+    "id": 7,
+    "title": "Dental Check-up & Hygiene",
+    "subtitle": "Dental",
+    "price": 120,
+    "priceUnit": "per visit",
+    "description": "Examination, small x-rays where needed, and a scale and polish.",
+    "category": "dental",
+    "tags": ["40 minutes", "X-rays if needed"],
+    "meta": { "durationMinutes": 40 }
+  },
+  {
+    "id": 8,
+    "title": "Teeth Whitening",
+    "subtitle": "Dental",
+    "price": 340,
+    "priceUnit": "per course",
+    "description": "Custom trays and a supervised home whitening course with a check-in.",
+    "category": "dental",
+    "tags": ["Custom trays", "2-week course"],
+    "meta": { "durationMinutes": 30 }
+  }
+]

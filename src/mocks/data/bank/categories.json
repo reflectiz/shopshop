@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Current",
+    "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 2,
+    "name": "Savings",
+    "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 3,
+    "name": "Cards",
+    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 4,
+    "name": "Borrowing",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop"
+  }
+]

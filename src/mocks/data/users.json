@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "email": "demo-admin@shophub-demo.com",
+    "name": "Demo Admin",
+    "flavors": ["retail", "insurance", "bank", "healthcare"]
+  },
+  {
+    "id": 2,
+    "email": "demo@safetravel-demo.com",
+    "name": "Daniel Cohen",
+    "flavors": ["insurance"]
+  },
+  {
+    "id": 3,
+    "email": "demo@northbank-demo.com",
+    "name": "Maya Levi",
+    "flavors": ["bank"]
+  },
+  {
+    "id": 4,
+    "email": "demo@wellcare-demo.com",
+    "name": "Or Shalev",
+    "flavors": ["healthcare"]
+  },
+  {
+    "id": 5,
+    "email": "demo@shophub-demo.com",
+    "name": "Tal Avrahami",
+    "flavors": ["retail"]
+  }
+]

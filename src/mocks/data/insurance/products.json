@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "Travel Essentials",
+    "subtitle": "Basic cover",
+    "price": 38,
+    "priceUnit": "per traveler",
+    "image": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop",
+    "description": "Emergency medical cover and baggage protection for straightforward trips.",
+    "category": "travel",
+    "tags": ["Medical to $100k", "Baggage to $750", "24/7 helpline"],
+    "meta": { "deductible": 150, "medicalLimit": 100000, "cancellationLimit": 1500 }
+  },
+  {
+    "id": 2,
+    "title": "Travel Standard",
+    "subtitle": "Most popular",
+    "price": 68,
+    "priceUnit": "per traveler",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop",
+    "description": "Higher medical limits plus trip cancellation and delay cover.",
+    "category": "travel",
+    "tags": ["Medical to $250k", "Trip cancellation", "Delay cover"],
+    "meta": { "deductible": 100, "medicalLimit": 250000, "cancellationLimit": 5000 }
+  },
+  {
+    "id": 3,
+    "title": "Travel Premier",
+    "subtitle": "Comprehensive",
+    "price": 112,
+    "priceUnit": "per traveler",
+    "image": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=300&fit=crop",
+    "description": "Our highest limits, including medical evacuation and adventure sports.",
+    "category": "travel",
+    "tags": ["Medical to $1m", "Medical evacuation", "Adventure sports", "Zero deductible"],
+    "meta": { "deductible": 0, "medicalLimit": 1000000, "cancellationLimit": 15000 }
+  },
+  {
+    "id": 4,
+    "title": "Annual Multi-Trip",
+    "subtitle": "Frequent travelers",
+    "price": 245,
+    "priceUnit": "per year",
+    "image": "https://images.unsplash.com/photo-1521727857535-28d2047619b5?w=400&h=300&fit=crop",
+    "description": "Unlimited trips up to 45 days each, for one annual premium.",
+    "category": "travel",
+    "tags": ["Unlimited trips", "45 days per trip", "Medical to $500k"],
+    "meta": { "deductible": 100, "medicalLimit": 500000, "maxTripDays": 45 }
+  },
+  {
+    "id": 5,
+    "title": "Home Buildings & Contents",
+    "subtitle": "Owner-occupier",
+    "price": 42,
+    "priceUnit": "per month",
+    "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=300&fit=crop",
+    "description": "Rebuild cover for the structure plus contents against fire, flood and theft.",
+    "category": "home",
+    "tags": ["Rebuild to $500k", "Contents to $75k", "Escape of water"],
+    "meta": { "deductible": 500, "buildingsLimit": 500000, "contentsLimit": 75000 }
+  },
+  {
+    "id": 6,
+    "title": "Tenant Contents",
+    "subtitle": "Renters",
+    "price": 14,
+    "priceUnit": "per month",
+    "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop",
+    "description": "Covers your belongings in a rented home, including accidental damage.",
+    "category": "home",
+    "tags": ["Contents to $30k", "Accidental damage", "Tenant liability"],
+    "meta": { "deductible": 250, "contentsLimit": 30000 }
+  },
+  {
+    "id": 7,
+    "title": "Comprehensive Motor",
+    "subtitle": "Full cover",
+    "price": 76,
+    "priceUnit": "per month",
+    "image": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&h=300&fit=crop",
+    "description": "Own damage, third-party liability, fire and theft, with a courtesy car.",
+    "category": "motor",
+    "tags": ["Courtesy car", "Windscreen cover", "European driving"],
+    "meta": { "deductible": 400, "noClaimsYears": 5 }
+  },
+  {
+    "id": 8,
+    "title": "Third-Party Motor",
+    "subtitle": "Legal minimum",
+    "price": 34,
+    "priceUnit": "per month",
+    "image": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&h=300&fit=crop",
+    "description": "Liability cover for damage and injury you cause to others.",
+    "category": "motor",
+    "tags": ["Third-party liability", "Fire and theft"],
+    "meta": { "deductible": 600 }
+  },
+  {
+    "id": 9,
+    "title": "Level Term Life",
+    "subtitle": "20-year term",
+    "price": 29,
+    "priceUnit": "per month",
+    "image": "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&h=300&fit=crop",
+    "description": "A fixed lump sum paid to your beneficiaries during the policy term.",
+    "category": "life",
+    "tags": ["$250k lump sum", "Fixed premium", "Terminal illness benefit"],
+    "meta": { "termYears": 20, "sumAssured": 250000 }
+  },
+  {
+    "id": 10,
+    "title": "Income Protection",
+    "subtitle": "Monthly benefit",
+    "price": 47,
+    "priceUnit": "per month",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop",
+    "description": "Replaces up to 60% of your income if illness or injury stops you working.",
+    "category": "life",
+    "tags": ["60% of income", "8-week wait", "To retirement age"],
+    "meta": { "waitWeeks": 8, "replacementRate": 60 }
+  }
+]
